@@ -1,25 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Layout } from 'antd'
+
+import Components from './containers/components'
+import Preview from './containers/preview'
+
+import './App.scss'
+
+const {
+  Header, Sider, Content,
+} = Layout;
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="app">
+        <Layout>
+          <Header style={{ background: '#aaa' }}>Header</Header>
+          <Layout style={{ height: '100vh' }}>
+            <Sider style={{ background: '#fff', padding: '20px' }}>
+              <Components />
+            </Sider>
+            <Content>
+              <Preview />
+            </Content>
+            <Sider style={{ background: '#fff' }}>Sider</Sider>
+          </Layout>
+        </Layout>
       </div>
     );
   }
