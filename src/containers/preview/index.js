@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { Form, Input } from 'antd'
 
 export default class Preview extends Component {
   state = {
@@ -28,6 +29,12 @@ export default class Preview extends Component {
   handleDragOver = (e) => {
     e.preventDefault()
   }
+
+  renderComponent = (ComponentName) => {
+    return (
+      <ComponentName />
+    )
+  }
   
   render() {
     return (
@@ -39,9 +46,9 @@ export default class Preview extends Component {
         style={{ height: '100%', padding: '20px' }}
       >
         {
-          this.state.componentList.map((Component, index) => (
-            <Component key={index} />
-          ))
+          this.state.componentList.map((component, index) => {
+            return this.renderComponent(component)
+          })
         }
       </div>
     );
