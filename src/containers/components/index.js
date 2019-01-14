@@ -1,7 +1,8 @@
 import React, { Component } from "react"
-import { Input } from "antd"
 
 import Form from './Form'
+import Select from './Select'
+import Input from './Input'
 
 import './index.scss'
 
@@ -28,7 +29,15 @@ export default class Components extends Component {
           onDragStart={this.handleDragStart}
           data-name="Input"
         >
-          <Input placeholder="input" />
+          <Input />
+        </div>
+        <div
+          className="component-wrapper"
+          draggable="true"
+          onDragStart={this.handleDragStart}
+          data-name="Select"
+        >
+          <Select />
         </div>
       </div>
     )
