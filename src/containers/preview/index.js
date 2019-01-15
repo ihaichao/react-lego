@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { Form } from 'antd'
+// import { Form } from 'antd'
 
-import Select from '../components/Select'
-import Input from '../components/Input'
+import Form from '../components/Form'
 
 export default class Preview extends Component {
   state = {
@@ -33,19 +32,20 @@ export default class Preview extends Component {
     e.preventDefault()
   }
 
+  handleSelect = (e) => {
+    console.log(e.target)
+    e.target.className += 'selected'
+  }
+
   renderComponent = (componentName, index) => {
     switch(componentName) {
       case 'Form':
         return (
+          <Form onClick={this.handleSelect} key={index} />
+        )
+      default:
+        return (
           <Form key={index} />
-        )
-      case 'Input':
-        return (
-          <Input key={index} />
-        )
-      case 'Select':
-        return (
-          <Select key={index} />
         )
     }
   }

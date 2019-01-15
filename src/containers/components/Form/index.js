@@ -1,11 +1,5 @@
 import React, { Component } from "react"
-import {
-  Form, Icon, Input, Button,
-} from 'antd';
-
-function hasErrors(fieldsError) {
-  return Object.keys(fieldsError).some(field => fieldsError[field]);
-}
+import { Form, Icon, Input } from 'antd';
 
 class HorizontalLoginForm extends Component {
   componentDidMount() {
@@ -23,7 +17,7 @@ class HorizontalLoginForm extends Component {
 
   render() {
     const {
-      getFieldDecorator, getFieldsError, getFieldError, isFieldTouched,
+      getFieldDecorator, getFieldError, isFieldTouched,
     } = this.props.form;
 
     const userNameError = isFieldTouched('userName') && getFieldError('userName');
