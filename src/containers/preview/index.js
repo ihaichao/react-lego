@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 
 import Form from '../components/Form'
 
+import './index.scss'
+
 export default class Preview extends Component {
   state = {
     componentList: []
@@ -33,8 +35,9 @@ export default class Preview extends Component {
   }
 
   handleSelect = (e) => {
-    console.log(e.target)
-    e.target.className += 'selected'
+    if (e.target.className.indexOf('selected') === -1) {
+      e.target.className += ' selected'
+    }
   }
 
   renderComponent = (componentName, index) => {
@@ -45,7 +48,7 @@ export default class Preview extends Component {
         )
       default:
         return (
-          <Form key={index} />
+          <Form onClick={this.handleSelect} key={index} />
         )
     }
   }
